@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../texts.dart';
 import '../tools.dart';
  List <restaurant> restaurantsList=[
-  restaurant(name: "Italian Food", image: resto6),
-  restaurant(name: "Mexico Tacos", image: resto7),
-  restaurant(name: "El-Khaima", image: resto9),
-  restaurant(name: "Patisserie Parisienne", image: resto8),
+  restaurant(name: "Italian Food", image: resto1),
+  restaurant(name: "Mexico Tacos", image: resto2),
+  restaurant(name: "Le Prisien", image: resto3),
+  restaurant(name: "Patisserie Parisienne", image: resto4),
+  restaurant(name: "Queen & King", image: resto5),
+
 ] ;
 
 class restaurants extends StatelessWidget {
@@ -26,10 +28,7 @@ class restaurants extends StatelessWidget {
                  width: 250,
                  decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(0),
-                      //  border: Border(bottom: BorderSide(color:Colors.orange,width: 2))
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -37,14 +36,13 @@ class restaurants extends StatelessWidget {
                             borderRadius: BorderRadius.circular(15.0),
                             child: Image.asset(restaurantsList[index].image,height: 190,),
                             ),
-                          SizedBox(height: 8,),
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(10.0, 0, 0, 0),
+                            padding: const EdgeInsets.fromLTRB(0.0, 0, 0, 0),
                             child: texts(text: restaurantsList[index].name,size: 25.0,),
                           )
                                 ],
                               ),
-                    ),
+                    
                       ),
                     );
 

@@ -9,8 +9,9 @@ final String name;
   final String image;
   Icon favicon=Icon(Icons.favorite, color: Colors.red, size: 36,);
   int quentity=0;
+  final String resto;
 
-  plate({@required this.name,@required this.prix,/* this.is_favorite*/@required this.image});
+  plate({@required this.name,@required this.prix,/* this.is_favorite*/@required this.image, @required this.resto});
   @override
   Widget build(BuildContext context) {
     return Container(

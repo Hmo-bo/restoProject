@@ -14,7 +14,7 @@ class LikeWidget extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius:
               BorderRadius.circular(35),
-              color: Colors.white,
+              color: Colors.black
               ),
           child: Padding(
             padding: const EdgeInsets.all(4.0),
