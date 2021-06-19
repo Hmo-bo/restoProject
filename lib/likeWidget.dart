@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:project/tools.dart';
 
-class LikeWidget extends StatelessWidget {
+class LikedWidget extends StatefulWidget {
+
+  @override
+  _LikedWidgetState createState() => _LikedWidgetState();
+}
+class _LikedWidgetState extends State<LikedWidget> {
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -18,14 +23,17 @@ class LikeWidget extends StatelessWidget {
               ),
           child: Padding(
             padding: const EdgeInsets.all(4.0),
-            child: Icon(
-              Icons.favorite_border,
+            child:  Icon(Icons.favorite_border,
               color: Colors.red,
               size: 25,
-            ),
+              
+              )
+            
           ),
         ),
       ),
     );
+} 
+  
   }
-}
+

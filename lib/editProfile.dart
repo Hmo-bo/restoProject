@@ -12,7 +12,7 @@ class _editProfileState extends State<editProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff0F102C),
+      backgroundColor: Colors.grey[100],
       body: Center(
         child: Padding(
           padding:
@@ -24,9 +24,9 @@ class _editProfileState extends State<editProfile> {
                     text: 'Edit Profile',
                     size: 30,
                     fsize: FontWeight.bold,
-                    color: Colors.white),
+                    color: Color(0xff0F102C)),
                 SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
                 Container(
                   width: 360,

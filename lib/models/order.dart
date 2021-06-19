@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
 class order {
+  String resto;
+  DateTime date;
+  double total;
+  String state;
 
-  final String resto;
-  final DateTime date;
-  final double total;
-   String state="Not Ready";
-
-  order( {@required this.resto, @required this.date, @required this.total});
-
+  order({this.resto, this.date, this.total});
 }

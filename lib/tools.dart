@@ -1,5 +1,7 @@
 
 //------ Categories -------------------------------
+import 'package:flutter/cupertino.dart';
+
 String burger="lib/assets/buger.jpg";
 String cakes="lib/assets/cakes.jpg";
 String pates="lib/assets/pates.jpg";
@@ -60,3 +62,9 @@ String grill3="lib/assets/grill3.jpg";
 String grill4="lib/assets/grill4.jpg";
 String grill5="lib/assets/grill5.jpg";
 
+Color blue=Color(0xff0F102C);
+Color orange=Color(0xffF7901E);
+
+String id_client;
+
+String logo="lib/assets/Logo-01.png";

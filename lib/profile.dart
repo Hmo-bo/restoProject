@@ -1,10 +1,21 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_session/flutter_session.dart';
+import 'package:project/LoginPage.dart';
 import 'package:project/editProfile.dart';
 import 'package:project/myOrders.dart';
+import 'package:http/http.dart'as http;
 import 'package:project/texts.dart';
+import 'package:project/tools.dart';
 
-class profile extends StatelessWidget {
+class profile extends StatefulWidget {
+
   @override
+  _profileState createState() => _profileState();
+}
+
+class _profileState extends State<profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -22,15 +33,31 @@ class profile extends StatelessWidget {
                 SizedBox(
                   height: 5,
                 ),
-                texts(
-                  text: "Bouhadiba Hammou",
+                FutureBuilder(
+                  future: getInfo(),
+                  builder: (context,snapshot)
+                  {
+                    List list=snapshot.data;
+                            if (snapshot.hasError)print(snapshot.error);
+                            return snapshot.hasData?
+                  Column(children: [
+                    texts(
+                      text: list[0]['name'],
                   size: 22,
                   fsize: FontWeight.bold,
                 ),
                 texts(
-                  text: "hammoubouhadiba37@gmail.com",
+                  text:list[0]['email'],
                   size: 18,
                 ),
+                  ],):Center(
+                                child: CircularProgressIndicator(),
+                              );
+                        
+                  
+                  },
+                ),
+                
                 SizedBox(
                   height: 50,
                 ),
@@ -84,7 +111,13 @@ class profile extends StatelessWidget {
                         borderRadius: new BorderRadius.circular(30.0)),
                     splashColor: Color(0xff0F102C),
                     color: Color(0xffF7901E),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (context) => LoginPage()));
+                                    FlutterSession().set("token", "");
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -103,5 +136,15 @@ class profile extends StatelessWidget {
         ),
       ),
     );
+  }
+  Future getInfo()async
+  {
+      Uri url = Uri.parse("http://192.168.137.1/client/getinfo.php");
+    var response = await http.post(url,body: {
+      'id':id_client
+    });
+    var data = await json.decode(response.body);
+    return data;
+
   }
 }
